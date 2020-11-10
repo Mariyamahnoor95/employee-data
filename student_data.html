@@ -62,12 +62,12 @@
             </div>
 
             <div class="form-group">
-                <label for="DEPARTMENT">Department</label>
+                <label for="department">Department</label>
                 <textarea class="form-control" id="department" rows="1"></textarea>
             </div>
             <div class="form-group">
                 <label for="email">email</label>
-                <input type="email" class="form-control" id="title" aria-describedby="emailHelp">
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
               
             </div>
             <div class="form-group">
@@ -122,16 +122,18 @@
             function getAndUpdate(){
                 console.log("Updating List...");
                 tit = document.getElementById('title').value;
+                dept = document.getElementById('department').value;
+                emai = document.getElementById('email').value;
                 desc = document.getElementById('description').value;
                 if (localStorage.getItem('itemsJson')==null){
                     itemJsonArray = [];
-                    itemJsonArray.push([tit, desc]);
+                    itemJsonArray.push([tit, dept,emai,desc]);
                     localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
                 }
                 else{
                     itemJsonArrayStr = localStorage.getItem('itemsJson')
                     itemJsonArray = JSON.parse(itemJsonArrayStr);
-                    itemJsonArray.push([tit, desc]);
+                    itemJsonArray.push([tit, dept,emai, desc]);
                     localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
                 }
                 update();
